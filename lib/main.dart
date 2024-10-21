@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/presentation/graphql/graphql_example.dart';
-import 'package:flutter_application_1/presentation/semantics/semantics_screen.dart';
-import 'package:flutter_application_1/presentation/websockets/websockets_example.dart';
+import 'package:things_to_study/presentation/graphql/graphql_example.dart';
+import 'package:things_to_study/presentation/semantics/semantics_screen.dart';
+import 'package:things_to_study/presentation/websockets/websockets_example.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,4 +1,4 @@
-package com.example.flutter_application_1
+package com.example.things_to_study
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,7 +8,7 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
-    private val CHANNEL = "com.example.flutter_application_1/settings"
+    private val CHANNEL = "com.example.things_to_study/settings"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)

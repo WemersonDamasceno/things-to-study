@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/data/web_sockets/web_sockets_datasource.dart';
 import 'package:intl/intl.dart';
+import 'package:things_to_study/data/web_sockets/web_sockets_datasource.dart';
 
 class WebSocketsExample extends StatefulWidget {
   const WebSocketsExample({super.key});
