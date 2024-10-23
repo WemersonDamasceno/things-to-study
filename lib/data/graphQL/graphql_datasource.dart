@@ -101,6 +101,7 @@ class GraphQLDatasource {
 
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
+      log(data.toString());
       final success = data['data']['deletePost'] as bool;
       return success;
     } else {

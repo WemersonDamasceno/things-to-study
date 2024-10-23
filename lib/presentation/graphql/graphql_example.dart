@@ -95,15 +95,6 @@ class _GraphQLExampleState extends State<GraphQLExample> {
                                           ),
                                         );
                                       }
-
-                                      ScaffoldMessenger.of(context)
-                                          .showSnackBar(
-                                        const SnackBar(
-                                          content: Text(
-                                              'Post atualizado com sucesso!'),
-                                          duration: Duration(seconds: 2),
-                                        ),
-                                      );
                                     },
                                     icon: const Icon(Icons.edit),
                                   ),
