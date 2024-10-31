@@ -27,7 +27,7 @@ class DownloadPage extends StatefulWidget {
   const DownloadPage({super.key});
 
   @override
-  _DownloadPageState createState() => _DownloadPageState();
+  State<DownloadPage> createState() => _DownloadPageState();
 }
 
 class _DownloadPageState extends State<DownloadPage> {
