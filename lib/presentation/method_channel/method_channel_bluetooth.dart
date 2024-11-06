@@ -7,7 +7,7 @@ class BluetoothDropdown extends StatefulWidget {
   const BluetoothDropdown({super.key});
 
   @override
-  _BluetoothDropdownState createState() => _BluetoothDropdownState();
+  State<BluetoothDropdown> createState() => _BluetoothDropdownState();
 }
 
 class _BluetoothDropdownState extends State<BluetoothDropdown> {
@@ -32,7 +32,7 @@ class _BluetoothDropdownState extends State<BluetoothDropdown> {
         }).toList();
       });
     } on PlatformException catch (e) {
-      print("Error: '${e.message}'.");
+      log("Error: '${e.message}'.");
     }
   }
 

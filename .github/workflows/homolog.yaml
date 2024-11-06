@@ -1,0 +1,81 @@
+name: Deployment in app distribution
+
+on: 
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  verify-semantic-pull-request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+    
+  verify-flutter:
+    uses: ./.github/workflows/flutter_package.yaml
+    with:
+      flutter_channel: 'stable'
+      flutter_version: '3.19.5'
+      min_coverage: 0 
+      runs_on: ubuntu-latest 
+
+  # build-app-bundle:
+  #   name: Build Flutter (Android)
+  #   needs: [verify-flutter]
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: 📚 Git Checkout
+  #       uses: actions/checkout@v3
+
+  #     - name: 🐦 Setup Flutter
+  #       uses: subosito/flutter-action@v2
+  #       with:
+  #         flutter_version: 3.19.5
+  #         channel: stable
+
+  #     - name: 📦 Install Dependencies
+  #       run: flutter packages get
+
+  #     - name: 🔐 Decode Keystore
+  #       id: write_file
+  #       uses: timheuer/base64-to-file@v1
+  #       with:
+  #         fileName: "my-upload-key.keystore"
+  #         encodedString: ${{ secrets.KEYSTORE }}
+
+  #     - name: 🔨 Build App Bundle
+  #       run: |
+  #         flutter build appbundle --release --no-tree-shake-icons \
+  #         --dart-define DEFINE_FLAVOR_ENVIRONMENT=homolog \
+  #         --build-name=1.0.${{ github.run_number }} --build-number=${{ github.run_number }}
+  #       env: 
+  #         ANDROID_KEYSTORE_PATH: ${{ steps.write_file.outputs.filePath }}
+  #         ANDROID_KEYSTORE_ALIAS: ${{ secrets.ANDROID_KEYSTORE_ALIAS }}
+  #         ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD }}
+  #         ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+
+  #     - name: 🧷 Upload APK
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: app-release
+  #         path: build/app/outputs/bundle/release/
+
+  # deploy-android-staging:
+  #   name: Deploy Android to App Distribution
+  #   needs: [build-app-bundle]
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: 📚 Git Checkout
+  #       uses: actions/checkout@v3
+      
+  #     - name: 🧷 Download Artifact
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: app-release
+      
+  #     - name: 🚀 Deploy to App Distribution
+  #       uses: wzieba/Firebase-Distribution-Github-Action@v1.7.0
+  #       with:
+  #         appId: ${{secrets.FIREBASE_APP_ID}}
+  #         serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+  #         groups: dev
+  #         file: app-release.aab
