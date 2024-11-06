@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:things_to_study/presentation/animations/animations_options.dart';
 import 'package:things_to_study/presentation/graphql/graphql_example.dart';
 import 'package:things_to_study/presentation/isolates/isolates_screen.dart';
 import 'package:things_to_study/presentation/method_channel/method_channel_bluetooth.dart';
@@ -60,6 +61,16 @@ class ListOfExamples extends StatelessWidget {
                   );
                 },
                 child: const Text('GraphQL'),
+              ),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AnimationsOptions(),
+                  ),
+                ),
+                child: const Text('Animações'),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
