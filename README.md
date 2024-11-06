@@ -29,6 +29,7 @@ Cada funcionalidade estudada está separada por diretórios específicos, facili
 ```bash
 flutter-study-repository/
 │
+├── animations_list/            # Widgets de animações
 ├── accessibility_widgets/      # Widgets e boas práticas de acessibilidade
 ├── api_consumption_graphql/    # Exemplos de consumo de API com GraphQL
 ├── isolates/                   # Casos de uso de Isolates
