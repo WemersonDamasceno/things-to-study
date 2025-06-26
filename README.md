@@ -5,9 +5,6 @@ Este repositório armazena códigos desenvolvidos em **Flutter** com foco nas fu
 ---
 
 
-https://github.com/user-attachments/assets/d6881366-5b8c-46b4-946a-6c83708e7a35
-
-
 ## ✨ **Funcionalidades exploradas**  
 - **Widgets de Acessibilidade**  
   Estudo e implementação de widgets e práticas para garantir a acessibilidade em aplicativos Flutter.  
